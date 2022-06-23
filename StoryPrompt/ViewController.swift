@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         storyPrompt.number = Int(sender.value)
     }
     
+    @IBAction func generateStoryPrompt(_ sender: Any) {
+        updateStoryPrompt()
+        print(storyPrompt)
+    }
+    
     @IBAction func changeStoryType(_ sender: UISegmentedControl) {
         if let genre = StoryPrompts.Genre(rawValue: sender.selectedSegmentIndex) {
             storyPrompt.genre = genre
@@ -29,6 +34,7 @@ class ViewController: UIViewController {
             storyPrompt.genre = .scifi
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +43,19 @@ class ViewController: UIViewController {
         storyPrompt.adjective = "smelly"
         storyPrompt.verb = "burps"
         storyPrompt.number = Int(numberSlider.value)
-        print(storyPrompt)
+    }
+    
+    func updateStoryPrompt() {
+        storyPrompt.noun = nounTextField.text ?? ""
+        storyPrompt.verb = verbTextField.text ?? ""
+        storyPrompt.adjective = adjectiveTextField.text ?? ""
     }
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        updateStoryPrompt()
+        return true
+    }
+}
