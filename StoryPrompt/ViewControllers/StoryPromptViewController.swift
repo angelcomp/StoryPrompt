@@ -11,17 +11,12 @@ class StoryPromptViewController: UIViewController {
 
     @IBOutlet weak var storyPromptTextView: UITextView!
 
-    var storyPrompt = StoryPromptEntry()
+    var storyPrompt: StoryPromptEntry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        storyPrompt.noun = "bla"
-        storyPrompt.verb = "ble"
-        storyPrompt.adjective = "bli"
-        storyPrompt.number = 4
-        
-        storyPromptTextView.text = storyPrompt.description
+        storyPromptTextView.text = storyPrompt?.description
     }
     
     override func viewWillAppear(_ animated: Bool) {

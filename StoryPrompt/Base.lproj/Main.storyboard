@@ -8,6 +8,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Story Prompt Table View Controller-->
+        <scene sceneID="6Yg-Y9-0hk">
+            <objects>
+                <tableViewController id="4Gk-fv-cae" customClass="StoryPromptTableViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="jFc-Nh-2eb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryPromptCell" textLabel="4Yd-Pa-WZT" style="IBUITableViewCellStyleDefault" id="6LP-Eq-jWc">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6LP-Eq-jWc" id="LJV-vf-unM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Yd-Pa-WZT">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4Gk-fv-cae" id="fQq-Vh-DyU"/>
+                            <outlet property="delegate" destination="4Gk-fv-cae" id="zG2-NB-JUt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="b0K-hG-9KE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NkD-6G-wuN">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="AddStoryPromptSegue" id="oi4-Cj-F3A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="GBN-k7-tCZ" kind="show" identifier="ShowStoryPromptSegue" id="YOR-Gr-qSR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oHW-hb-Uza" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-816" y="76"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="1fA-of-8br">
             <objects>
@@ -17,14 +64,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HHE-Ck-atM"/>
+                        <segue destination="4Gk-fv-cae" kind="relationship" relationship="rootViewController" id="Qi0-ia-BzT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFl-f2-7Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-993" y="119"/>
+            <point key="canvasLocation" x="-1586" y="76"/>
         </scene>
-        <!--New Story Prompt-->
+        <!--Add Story Prompt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AddStoryPromptViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,7 +189,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generete Story Prompt"/>
                                         <connections>
-                                            <segue destination="GBN-k7-tCZ" kind="show" id="4h6-1k-0ct"/>
+                                            <action selector="generateStoryPrompt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tx9-jD-eRP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -156,7 +203,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qP3-WQ-z5L" secondAttribute="trailing" constant="20" id="tnj-k1-br1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Story Prompt" id="WCJ-oV-2R8"/>
+                    <navigationItem key="navigationItem" title="Add Story Prompt" id="WCJ-oV-2R8"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="adjectiveTextField" destination="yG2-Mm-8x2" id="l0u-CG-Hb3"/>
@@ -165,11 +212,12 @@
                         <outlet property="numberSlider" destination="cd8-EQ-R1R" id="mKt-yX-I7f"/>
                         <outlet property="storyPromptImageView" destination="lp3-Vh-mLV" id="aqL-TK-hYm"/>
                         <outlet property="verbTextField" destination="Xkg-1W-LDw" id="COO-Fi-aHp"/>
+                        <segue destination="GBN-k7-tCZ" kind="show" identifier="StoryPromptSegue" id="MgN-L9-jlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="75.669642857142847"/>
+            <point key="canvasLocation" x="154" y="-258"/>
         </scene>
         <!--Story Prompt View Controller-->
         <scene sceneID="beK-IB-f6f">
@@ -196,6 +244,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Mg3-k3-eLr">
+                                <rect key="frame" x="120.5" y="831" width="173" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXG-zZ-a7A">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Discard"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="in5-My-1av">
+                                        <rect key="frame" x="99.5" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A8L-vk-9rq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -203,7 +268,9 @@
                         <constraints>
                             <constraint firstItem="FDs-P5-q90" firstAttribute="centerY" secondItem="Xku-i0-Wed" secondAttribute="centerY" id="6ZK-Ca-KLe"/>
                             <constraint firstItem="gaA-gA-Fwa" firstAttribute="centerX" secondItem="FDs-P5-q90" secondAttribute="centerX" id="Djj-JE-I5r"/>
+                            <constraint firstItem="Mg3-k3-eLr" firstAttribute="bottom" secondItem="A8L-vk-9rq" secondAttribute="bottom" id="XII-WU-8zC"/>
                             <constraint firstItem="FDs-P5-q90" firstAttribute="centerX" secondItem="Xku-i0-Wed" secondAttribute="centerX" id="aU5-ke-hcD"/>
+                            <constraint firstItem="Mg3-k3-eLr" firstAttribute="centerX" secondItem="Xku-i0-Wed" secondAttribute="centerX" id="d4J-ah-4v8"/>
                             <constraint firstItem="FDs-P5-q90" firstAttribute="width" secondItem="Xku-i0-Wed" secondAttribute="width" id="olt-wz-27z"/>
                             <constraint firstItem="gaA-gA-Fwa" firstAttribute="centerY" secondItem="FDs-P5-q90" secondAttribute="centerY" id="vZQ-7X-Ouc"/>
                         </constraints>
@@ -215,9 +282,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLI-rD-ft6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963.76811594202911" y="75.669642857142847"/>
+            <point key="canvasLocation" x="1103" y="76"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YOR-Gr-qSR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="10.circle" catalog="system" width="128" height="121"/>
         <image name="5.circle" catalog="system" width="128" height="121"/>
