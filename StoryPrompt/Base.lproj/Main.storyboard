@@ -100,6 +100,9 @@
                                             <segment title="Scifi"/>
                                             <segment title="Horror"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="changeStoryType:" destination="BYZ-38-t0r" eventType="valueChanged" id="V3N-xh-3Pl"/>
+                                        </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-8p-yBQ">
                                         <rect key="frame" x="0.0" y="400.5" width="374" height="31"/>

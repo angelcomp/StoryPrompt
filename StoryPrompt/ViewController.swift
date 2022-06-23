@@ -15,17 +15,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberSlider: UISlider!
     @IBOutlet weak var numberLabel: UILabel!
     
+    let storyPrompt = StoryPromptEntry()
+    
     @IBAction func changeNumber(_ sender: UISlider) {
-        
+        numberLabel.text = "Number: \(Int(sender.value))"
+        storyPrompt.number = Int(sender.value)
     }
     
+    @IBAction func changeStoryType(_ sender: UISegmentedControl) {
+        if let genre = StoryPrompts.Genre(rawValue: sender.selectedSegmentIndex) {
+            storyPrompt.genre = genre
+        } else {
+            storyPrompt.genre = .scifi
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storyPrompt = StoryPromptEntry()
+        
+        numberSlider.value = 7.5
         storyPrompt.noun = "toaster"
         storyPrompt.adjective = "smelly"
         storyPrompt.verb = "burps"
-        storyPrompt.number = 10
+        storyPrompt.number = Int(numberSlider.value)
         print(storyPrompt)
     }
 }
