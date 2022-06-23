@@ -252,12 +252,18 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Discard"/>
+                                        <connections>
+                                            <action selector="cancelStoryPrompt:" destination="GBN-k7-tCZ" eventType="touchUpInside" id="VEw-fN-rtR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="in5-My-1av">
                                         <rect key="frame" x="99.5" y="0.0" width="73.5" height="31"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                        <connections>
+                                            <segue destination="hJm-pc-X6g" kind="unwind" unwindAction="saveStoryPromptWithUnwindSegue:" id="pgR-vo-iYj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -278,9 +284,11 @@
                     <navigationItem key="navigationItem" id="ELx-iX-MQ3"/>
                     <connections>
                         <outlet property="StoryPromptTextView" destination="gaA-gA-Fwa" id="Tsu-ed-8TJ"/>
+                        <segue destination="hJm-pc-X6g" kind="unwind" identifier="CancelStoryPromptSegue" unwindAction="cancelStoryPromptWithUnwindSegue:" id="3iQ-BX-GJU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLI-rD-ft6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hJm-pc-X6g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1103" y="76"/>
         </scene>
