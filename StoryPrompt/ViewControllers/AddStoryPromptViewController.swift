@@ -48,12 +48,18 @@ class AddStoryPromptViewController: UIViewController {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         storyPromptImageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
         storyPromptImageView.addGestureRecognizer(gestureRecognizer)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStoryPrompt), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     @objc func changeImage() {
@@ -65,10 +71,11 @@ class AddStoryPromptViewController: UIViewController {
         present(controller, animated: true)
     }
     
-    func updateStoryPrompt() {
+    @objc func updateStoryPrompt() {
         storyPrompt.noun = nounTextField.text ?? ""
         storyPrompt.verb = verbTextField.text ?? ""
         storyPrompt.adjective = adjectiveTextField.text ?? ""
+        storyPrompt.image = storyPromptImageView.image ?? UIImage(named: "object-object_box-of-books")
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +84,7 @@ class AddStoryPromptViewController: UIViewController {
                 return
             }
             storyPromptViewController.storyPrompt = storyPrompt
+            storyPromptViewController.isNewStoryPrompt = true
         }
     }
 }
@@ -84,7 +92,6 @@ class AddStoryPromptViewController: UIViewController {
 extension AddStoryPromptViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        updateStoryPrompt()
         return true
     }
 }
