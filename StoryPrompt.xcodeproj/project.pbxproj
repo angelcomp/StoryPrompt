@@ -17,6 +17,7 @@
 		89BD62D228649EE800FD0017 /* StoryPromptEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD62D028649EE800FD0017 /* StoryPromptEntry.swift */; };
 		89BD62D72865125100FD0017 /* StoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD62D62865125100FD0017 /* StoryPromptViewController.swift */; };
 		89BD62D92865229D00FD0017 /* StoryPromptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD62D82865229D00FD0017 /* StoryPromptTableViewController.swift */; };
+		89BD63012865FDDC00FD0017 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD63002865FDDC00FD0017 /* MyCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		89BD62D028649EE800FD0017 /* StoryPromptEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPromptEntry.swift; sourceTree = "<group>"; };
 		89BD62D62865125100FD0017 /* StoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptViewController.swift; sourceTree = "<group>"; };
 		89BD62D82865229D00FD0017 /* StoryPromptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptTableViewController.swift; sourceTree = "<group>"; };
+		89BD63002865FDDC00FD0017 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				89BD62C32864901100FD0017 /* Assets.xcassets */,
 				89BD62C52864901100FD0017 /* LaunchScreen.storyboard */,
 				89BD62C82864901100FD0017 /* Info.plist */,
+				89BD63002865FDDC00FD0017 /* MyCustomCell.swift */,
 			);
 			path = StoryPrompt;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				89BD62BF2864900F00FD0017 /* AddStoryPromptViewController.swift in Sources */,
 				89BD62BB2864900F00FD0017 /* AppDelegate.swift in Sources */,
 				89BD62BD2864900F00FD0017 /* SceneDelegate.swift in Sources */,
+				89BD63012865FDDC00FD0017 /* MyCustomCell.swift in Sources */,
 				89BD62D128649EE800FD0017 /* StoryPrompts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

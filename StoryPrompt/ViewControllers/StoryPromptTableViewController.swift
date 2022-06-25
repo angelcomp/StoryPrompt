@@ -31,16 +31,19 @@ class StoryPromptTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryPromptCell", for: indexPath)
-        cell.textLabel?.text = "Prompt \(indexPath.row + 1)"
-        cell.imageView?.image = storyPrompts[indexPath.row].image
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryPromptCell", for: indexPath) as? MyCustomCell
+        
+        cell?.titleLabel?.text = "Prompt \(indexPath.row + 1)"
+        
+//        cell.textLabel?.text = "Prompt \(indexPath.row + 1)"
+//        cell.imageView?.image = storyPrompts[indexPath.row].image
         
 //                var content = cell.defaultContentConfiguration()
 //                content.text = "Prompt \(indexPath.row + 1)"
 //                content.image = storyPrompts[indexPath.row].image
 //                cell.contentConfiguration = content
         
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
